@@ -22,18 +22,18 @@ export function useDragDrop(
   // Set up dragging
   const [{ isDragging }, drag] = useDrag({
     type: 'element',
-    item: () => ({
-      id: element.id,
-      type: element.type,
-      parentId: element.parentId,
-      index,
-    }),
+    item: () => {
+      setIsDragging(true);
+      return {
+        id: element.id,
+        type: element.type,
+        parentId: element.parentId,
+        index,
+      };
+    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
-    begin: () => {
-      setIsDragging(true);
-    },
     end: (item, monitor) => {
       setIsDragging(false);
       if (!monitor.didDrop()) {

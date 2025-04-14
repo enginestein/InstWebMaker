@@ -12,6 +12,7 @@ interface BuilderContextType {
   isDragging: boolean;
   isPreviewMode: boolean;
   isExportModalOpen: boolean;
+  isTemplateSelectorOpen: boolean;
   
   // Actions
   addElement: (element: Omit<Element, 'id'>, targetId?: string) => void;
@@ -30,6 +31,8 @@ interface BuilderContextType {
   clearCanvas: () => void;
   setPreviewMode: (isPreview: boolean) => void;
   toggleExportModal: () => void;
+  toggleTemplateSelector: () => void;
+  setCanvas: (newCanvas: Canvas) => void;
 }
 
 const BuilderContext = createContext<BuilderContextType | undefined>(undefined);
@@ -49,6 +52,7 @@ export const BuilderProvider = ({ children }: { children: ReactNode }) => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [isPreviewMode, setIsPreviewMode] = useState<boolean>(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
+  const [isTemplateSelectorOpen, setIsTemplateSelectorOpen] = useState<boolean>(false);
   
   const { history, currentIndex, addToHistory, canUndo, canRedo, navigateHistory } = useUndo<Canvas>(initialCanvas);
 
@@ -316,6 +320,18 @@ export const BuilderProvider = ({ children }: { children: ReactNode }) => {
   const setPreviewMode = useCallback((isPreview: boolean) => {
     setIsPreviewMode(isPreview);
   }, []);
+  
+  // Toggle template selector modal
+  const toggleTemplateSelector = useCallback(() => {
+    setIsTemplateSelectorOpen(prev => !prev);
+  }, []);
+  
+  // Set canvas with a new state
+  const updateCanvas = useCallback((newCanvas: Canvas) => {
+    setCanvas(newCanvas);
+    setSelectedElement(null);
+    addToHistory();
+  }, [addToHistory]);
 
   // Undo/Redo operations
   const undo = useCallback(() => {
