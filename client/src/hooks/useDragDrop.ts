@@ -1,11 +1,11 @@
 import { useRef, useCallback } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { Element } from '@/components/elements/ElementTypes';
+import { Element, ElementType } from '@/components/elements/ElementTypes';
 import { useBuilder } from '@/context/BuilderContext';
 
 interface DragItem {
   id?: string;
-  type: string;
+  type: ElementType;
   parentId?: string;
   index?: number;
   [key: string]: any;
@@ -52,7 +52,13 @@ export function useDragDrop(
       
       // If the item doesn't have an ID, it's a new element from the library
       if (!item.id) {
-        addElement(item, element.id);
+        const newElement: Omit<Element, 'id'> = {
+          type: item.type,
+          content: item.content,
+          style: item.style,
+          children: item.children,
+        };
+        addElement(newElement, element.id);
         return;
       }
       
@@ -73,9 +79,6 @@ export function useDragDrop(
   // Combine drag and drop refs
   const attachRef = useCallback((el: HTMLDivElement | null) => {
     if (!el) return;
-    
-    // Set ref.current to the element
-    ref.current = el;
     
     // Apply drag and drop refs
     drag(el);

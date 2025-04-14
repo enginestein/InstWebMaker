@@ -367,6 +367,7 @@ export const BuilderProvider = ({ children }: { children: ReactNode }) => {
         isDragging,
         isPreviewMode,
         isExportModalOpen,
+        isTemplateSelectorOpen,
         addElement,
         removeElement,
         updateElement,
@@ -382,7 +383,9 @@ export const BuilderProvider = ({ children }: { children: ReactNode }) => {
         clearSelection,
         clearCanvas,
         setPreviewMode,
-        toggleExportModal
+        toggleExportModal,
+        toggleTemplateSelector,
+        setCanvas: updateCanvas
       }}
     >
       {children}

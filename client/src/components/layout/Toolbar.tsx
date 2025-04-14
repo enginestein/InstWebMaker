@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useBuilder } from '@/context/BuilderContext';
-import { Undo2, Redo2, Save, Eye, Grid, Code, Construction } from 'lucide-react';
+import { Undo2, Redo2, Save, Eye, Grid, Code, Construction, LayoutTemplate } from 'lucide-react';
 import { useState } from 'react';
 import { DeviceType } from '@/components/elements/ElementTypes';
 import { ExportModal } from '@/components/export/ExportModal';
 import { PreviewModal } from '@/components/preview/PreviewModal';
+import { TemplateSelector } from '@/components/templates/TemplateSelector';
 
 export function Toolbar() {
   const { 
@@ -20,7 +21,9 @@ export function Toolbar() {
     setPreviewMode,
     isPreviewMode,
     toggleExportModal,
-    isExportModalOpen
+    isExportModalOpen,
+    toggleTemplateSelector,
+    isTemplateSelectorOpen
   } = useBuilder();
   
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
