@@ -33,7 +33,8 @@ function generateCssClass(element: Element): string {
 
 // Generate all CSS from canvas elements
 export function generateCss(canvas: Canvas): string {
-  let css = `* {
+  let css = `/* Reset and Base Styles */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -43,14 +44,55 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   color: #1e293b;
-  background-color: #f8fafc;
+  background-color: ${canvas.backgroundColor || '#f8fafc'};
+  min-height: 100vh;
+  width: 100%;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
+a {
+  text-decoration: none;
+  color: #0ea5e9;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Container base styles */
+.el-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Form elements */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+
+/* Custom element styles */
 `;
 
   // Collect all elements recursively
@@ -81,11 +123,10 @@ img {
 function generateElementHtml(element: Element, indentation = ''): string {
   const attributes: Record<string, string> = {
     class: `el-${element.id}${element.className ? ` ${element.className}` : ''}`,
-    style: styleObjectToCss(element.style),
     ...(element.attributes || {}),
   };
   
-  // Build attributes string
+  // Build attributes string - we're removing style from here as we'll use CSS classes
   const attributesString = Object.entries(attributes)
     .filter(([_, value]) => value !== undefined && value !== '')
     .map(([key, value]) => `${key}="${value.replace(/"/g, '&quot;')}"`)

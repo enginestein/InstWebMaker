@@ -1489,9 +1489,906 @@ const businessTemplate: Template = {
   ])
 };
 
+// E-Commerce Template
+const ecommerceTemplate: Template = {
+  id: 'ecommerce',
+  name: 'E-Commerce Shop',
+  description: 'A modern, stylish e-commerce website template with product listings, categories, and shopping cart.',
+  thumbnail: 'https://placehold.co/600x400/4b76e8/ffffff?text=E-Commerce',
+  canvas: createTemplateCanvas([
+    {
+      type: 'container',
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        width: '100%'
+      },
+      children: [
+        // Header
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1.5rem',
+            backgroundColor: '#ffffff',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+            position: 'sticky',
+            top: '0',
+            zIndex: 100
+          },
+          children: [
+            // Logo
+            {
+              type: 'heading',
+              content: 'SHOPIFY',
+              style: {
+                fontSize: '24px',
+                fontWeight: '700',
+                color: '#3b82f6',
+                margin: '0'
+              }
+            },
+            // Navigation
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                gap: '2rem'
+              },
+              children: [
+                {
+                  type: 'link',
+                  content: 'Home',
+                  href: '#',
+                  style: {
+                    color: '#1e293b',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Shop',
+                  href: '#',
+                  style: {
+                    color: '#1e293b',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Categories',
+                  href: '#',
+                  style: {
+                    color: '#1e293b',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Cart (0)',
+                  href: '#',
+                  style: {
+                    color: '#1e293b',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Hero Section
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '4rem 2rem',
+            backgroundColor: '#f8fafc',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'heading',
+              content: 'Summer Collection 2025',
+              style: {
+                fontSize: '3rem',
+                fontWeight: '800',
+                color: '#1e293b',
+                marginBottom: '1rem'
+              }
+            },
+            {
+              type: 'text',
+              content: 'Discover the latest trends in fashion with our new summer collection.',
+              style: {
+                fontSize: '1.25rem',
+                color: '#64748b',
+                marginBottom: '2rem',
+                maxWidth: '600px'
+              }
+            },
+            {
+              type: 'button',
+              content: 'Shop Now',
+              style: {
+                backgroundColor: '#3b82f6',
+                color: '#ffffff',
+                padding: '0.75rem 2rem',
+                border: 'none',
+                borderRadius: '0.5rem',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer'
+              }
+            }
+          ]
+        },
+        
+        // Featured Products
+        {
+          type: 'container',
+          style: {
+            padding: '4rem 2rem'
+          },
+          children: [
+            {
+              type: 'heading',
+              content: 'Featured Products',
+              style: {
+                fontSize: '2rem',
+                fontWeight: '700',
+                textAlign: 'center',
+                marginBottom: '3rem'
+              }
+            },
+            // Products Grid
+            {
+              type: 'container',
+              style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+                gap: '2rem'
+              },
+              children: [
+                // Product 1
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                    transition: 'transform 0.2s',
+                    cursor: 'pointer'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/400x300/3b82f6/ffffff?text=Product%201',
+                      alt: 'Product 1',
+                      style: {
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Summer T-Shirt',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '600',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Comfortable cotton t-shirt for summer.',
+                          style: {
+                            color: '#64748b',
+                            marginBottom: '1rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: '$29.99',
+                          style: {
+                            fontWeight: '700',
+                            color: '#3b82f6',
+                            fontSize: '1.25rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                
+                // Product 2
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                    transition: 'transform 0.2s',
+                    cursor: 'pointer'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/400x300/4f46e5/ffffff?text=Product%202',
+                      alt: 'Product 2',
+                      style: {
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Denim Jeans',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '600',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Classic denim jeans with a modern fit.',
+                          style: {
+                            color: '#64748b',
+                            marginBottom: '1rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: '$59.99',
+                          style: {
+                            fontWeight: '700',
+                            color: '#3b82f6',
+                            fontSize: '1.25rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                
+                // Product 3
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                    transition: 'transform 0.2s',
+                    cursor: 'pointer'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/400x300/ef4444/ffffff?text=Product%203',
+                      alt: 'Product 3',
+                      style: {
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Summer Dress',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '600',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Lightweight dress for hot summer days.',
+                          style: {
+                            color: '#64748b',
+                            marginBottom: '1rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: '$45.99',
+                          style: {
+                            fontWeight: '700',
+                            color: '#3b82f6',
+                            fontSize: '1.25rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                
+                // Product 4
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                    transition: 'transform 0.2s',
+                    cursor: 'pointer'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/400x300/10b981/ffffff?text=Product%204',
+                      alt: 'Product 4',
+                      style: {
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Sneakers',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '600',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Stylish and comfortable sneakers.',
+                          style: {
+                            color: '#64748b',
+                            marginBottom: '1rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: '$79.99',
+                          style: {
+                            fontWeight: '700',
+                            color: '#3b82f6',
+                            fontSize: '1.25rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Call to Action
+        {
+          type: 'container',
+          style: {
+            padding: '4rem 2rem',
+            backgroundColor: '#3b82f6',
+            color: '#ffffff',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'heading',
+              content: 'Join Our Newsletter',
+              style: {
+                fontSize: '2rem',
+                fontWeight: '700',
+                marginBottom: '1rem'
+              }
+            },
+            {
+              type: 'text',
+              content: 'Get the latest news and offers directly to your inbox.',
+              style: {
+                marginBottom: '2rem'
+              }
+            },
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                maxWidth: '500px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'input',
+                  placeholder: 'Enter your email',
+                  style: {
+                    flex: '1',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '0.5rem 0 0 0.5rem',
+                    border: 'none'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Subscribe',
+                  style: {
+                    backgroundColor: '#1e293b',
+                    color: '#ffffff',
+                    padding: '0.75rem 1.5rem',
+                    border: 'none',
+                    borderRadius: '0 0.5rem 0.5rem 0',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Footer
+        {
+          type: 'container',
+          style: {
+            backgroundColor: '#1e293b',
+            color: '#ffffff',
+            padding: '4rem 2rem'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '2rem',
+                maxWidth: '1200px',
+                margin: '0 auto'
+              },
+              children: [
+                // Company Info
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'SHOPIFY',
+                      style: {
+                        fontSize: '1.5rem',
+                        fontWeight: '700',
+                        marginBottom: '1rem',
+                        color: '#3b82f6'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Quality fashion at affordable prices for everyone.',
+                      style: {
+                        color: '#94a3b8',
+                        marginBottom: '1rem'
+                      }
+                    }
+                  ]
+                },
+                
+                // Quick Links
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Quick Links',
+                      style: {
+                        fontSize: '1.25rem',
+                        fontWeight: '600',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Home',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'About Us',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Shop',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Contact',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    }
+                  ]
+                },
+                
+                // Customer Service
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Customer Service',
+                      style: {
+                        fontSize: '1.25rem',
+                        fontWeight: '600',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Shipping Policy',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Returns & Refunds',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'FAQs',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Privacy Policy',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    }
+                  ]
+                },
+                
+                // Contact
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Contact Us',
+                      style: {
+                        fontSize: '1.25rem',
+                        fontWeight: '600',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Email: support@shopify.com',
+                      style: {
+                        color: '#94a3b8',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Phone: +1 (123) 456-7890',
+                      style: {
+                        color: '#94a3b8',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Address: 123 Fashion St, New York, NY',
+                      style: {
+                        color: '#94a3b8',
+                        marginBottom: '0.5rem'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            // Copyright
+            {
+              type: 'divider',
+              style: {
+                borderColor: '#334155',
+                marginTop: '2rem',
+                marginBottom: '2rem'
+              }
+            },
+            {
+              type: 'text',
+              content: '© 2025 SHOPIFY. All rights reserved.',
+              style: {
+                textAlign: 'center',
+                fontSize: '0.875rem',
+                color: '#94a3b8',
+                margin: '0'
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ])
+};
+
+// SaaS Landing Template 
+const saasTemplate: Template = {
+  id: 'saas-landing',
+  name: 'SaaS Platform',
+  description: 'A modern SaaS landing page template with hero section, features, pricing, and testimonials.',
+  thumbnail: 'https://placehold.co/600x400/6366f1/ffffff?text=SaaS+Platform',
+  canvas: createTemplateCanvas([
+    {
+      type: 'container',
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        width: '100%',
+        fontFamily: 'Inter, sans-serif'
+      },
+      children: [
+        // Header
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1.5rem 2rem',
+            backgroundColor: '#ffffff',
+            borderBottom: '1px solid #f1f5f9'
+          },
+          children: [
+            // Logo
+            {
+              type: 'heading',
+              content: 'orbit',
+              style: {
+                fontSize: '2rem',
+                fontWeight: '800',
+                color: '#6366f1',
+                margin: '0'
+              }
+            },
+            // Navigation
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                gap: '2rem',
+                alignItems: 'center'
+              },
+              children: [
+                {
+                  type: 'link',
+                  content: 'Product',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Features',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Pricing',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Resources',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Get Started',
+                  style: {
+                    backgroundColor: '#6366f1',
+                    color: '#ffffff',
+                    padding: '0.75rem 1.5rem',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Hero Section
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            padding: '5rem 2rem',
+            backgroundColor: '#f8fafc'
+          },
+          children: [
+            {
+              type: 'heading',
+              content: 'All-in-one platform for modern teams',
+              style: {
+                fontSize: '3.5rem',
+                fontWeight: '800',
+                color: '#0f172a',
+                marginBottom: '1.5rem',
+                lineHeight: '1.2'
+              }
+            },
+            {
+              type: 'text',
+              content: 'Streamline your workflow, collaborate effectively, and deliver projects on time with our comprehensive project management solution.',
+              style: {
+                fontSize: '1.25rem',
+                color: '#64748b',
+                marginBottom: '2.5rem',
+                maxWidth: '700px'
+              }
+            },
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                gap: '1rem'
+              },
+              children: [
+                {
+                  type: 'button',
+                  content: 'Start Free Trial',
+                  style: {
+                    backgroundColor: '#6366f1',
+                    color: '#ffffff',
+                    padding: '0.875rem 2rem',
+                    border: 'none',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Schedule Demo',
+                  style: {
+                    backgroundColor: 'transparent',
+                    color: '#6366f1',
+                    padding: '0.875rem 2rem',
+                    border: '1px solid #6366f1',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ])
+};
+
 // Export all templates
 export const templates: Template[] = [
   landingPageTemplate,
   portfolioTemplate,
-  businessTemplate
+  businessTemplate,
+  ecommerceTemplate,
+  saasTemplate
 ];
