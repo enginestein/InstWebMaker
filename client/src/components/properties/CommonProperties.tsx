@@ -4,8 +4,18 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useElementActions } from '@/hooks/useElementActions';
 import { Button } from '@/components/ui/button';
-import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from 'lucide-react';
+import { 
+  AlignLeft, 
+  AlignCenter, 
+  AlignRight, 
+  AlignJustify,
+  BoxSelect,
+  LayoutGrid,
+  MoveHorizontal,
+  MoveVertical
+} from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface CommonPropertiesProps {
   element: Element;
@@ -24,10 +34,11 @@ export function CommonProperties({ element }: CommonPropertiesProps) {
   return (
     <div className="space-y-4 mt-4">
       <Tabs defaultValue="spacing" className="w-full">
-        <TabsList className="grid grid-cols-3 mb-4">
+        <TabsList className="grid grid-cols-4 mb-4">
           <TabsTrigger value="spacing">Spacing</TabsTrigger>
           <TabsTrigger value="size">Size</TabsTrigger>
           <TabsTrigger value="style">Style</TabsTrigger>
+          <TabsTrigger value="layout">Layout</TabsTrigger>
         </TabsList>
         
         <TabsContent value="spacing">
@@ -252,6 +263,187 @@ export function CommonProperties({ element }: CommonPropertiesProps) {
                 />
               </div>
             </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="layout">
+          <div className="mb-4">
+            <Label className="block text-sm font-medium mb-1">Display</Label>
+            <Select
+              value={element.style?.display || 'block'}
+              onValueChange={(value) => handleStyleChange('display', value)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select display type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="block">Block</SelectItem>
+                <SelectItem value="flex">Flex</SelectItem>
+                <SelectItem value="grid">Grid</SelectItem>
+                <SelectItem value="inline">Inline</SelectItem>
+                <SelectItem value="inline-block">Inline Block</SelectItem>
+                <SelectItem value="none">None</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          
+          {element.style?.display === 'flex' && (
+            <>
+              <div className="mb-4">
+                <Label className="block text-sm font-medium mb-1">Flex Direction</Label>
+                <div className="flex border border-border rounded overflow-hidden divide-x divide-border">
+                  <Button
+                    type="button"
+                    variant={element.style?.flexDirection === 'row' || !element.style?.flexDirection ? 'default' : 'ghost'}
+                    className="flex-1 rounded-none"
+                    onClick={() => handleStyleChange('flexDirection', 'row')}
+                  >
+                    <MoveHorizontal className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    type="button"
+                    variant={element.style?.flexDirection === 'column' ? 'default' : 'ghost'}
+                    className="flex-1 rounded-none"
+                    onClick={() => handleStyleChange('flexDirection', 'column')}
+                  >
+                    <MoveVertical className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="mb-4">
+                <Label className="block text-sm font-medium mb-1">Justify Content</Label>
+                <Select
+                  value={element.style?.justifyContent || 'flex-start'}
+                  onValueChange={(value) => handleStyleChange('justifyContent', value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select justification" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="flex-start">Start</SelectItem>
+                    <SelectItem value="center">Center</SelectItem>
+                    <SelectItem value="flex-end">End</SelectItem>
+                    <SelectItem value="space-between">Space Between</SelectItem>
+                    <SelectItem value="space-around">Space Around</SelectItem>
+                    <SelectItem value="space-evenly">Space Evenly</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="mb-4">
+                <Label className="block text-sm font-medium mb-1">Align Items</Label>
+                <Select
+                  value={element.style?.alignItems || 'stretch'}
+                  onValueChange={(value) => handleStyleChange('alignItems', value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select alignment" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="flex-start">Start</SelectItem>
+                    <SelectItem value="center">Center</SelectItem>
+                    <SelectItem value="flex-end">End</SelectItem>
+                    <SelectItem value="stretch">Stretch</SelectItem>
+                    <SelectItem value="baseline">Baseline</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="mb-4">
+                <Label className="block text-sm font-medium mb-1">Gap</Label>
+                <div className="flex">
+                  <Input
+                    type="number"
+                    value={parseNumberValue(element.style?.gap)}
+                    onChange={(e) => handleStyleChange('gap', e.target.value ? `${e.target.value}px` : '')}
+                    className="rounded-r-none"
+                  />
+                  <span className="bg-muted border border-l-0 border-border rounded-r px-2 flex items-center text-sm">px</span>
+                </div>
+              </div>
+            </>
+          )}
+          
+          <div className="mb-4">
+            <Label className="block text-sm font-medium mb-1">Position</Label>
+            <Select
+              value={element.style?.position || 'static'}
+              onValueChange={(value) => handleStyleChange('position', value)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select position" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="static">Static</SelectItem>
+                <SelectItem value="relative">Relative</SelectItem>
+                <SelectItem value="absolute">Absolute</SelectItem>
+                <SelectItem value="fixed">Fixed</SelectItem>
+                <SelectItem value="sticky">Sticky</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          
+          {element.style?.position && element.style.position !== 'static' && (
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div>
+                <Label className="block text-sm font-medium mb-1">Top</Label>
+                <div className="flex">
+                  <Input
+                    type="number"
+                    value={parseNumberValue(element.style?.top)}
+                    onChange={(e) => handleStyleChange('top', e.target.value ? `${e.target.value}px` : '')}
+                    className="rounded-r-none"
+                  />
+                  <span className="bg-muted border border-l-0 border-border rounded-r px-2 flex items-center text-sm">px</span>
+                </div>
+              </div>
+              <div>
+                <Label className="block text-sm font-medium mb-1">Right</Label>
+                <div className="flex">
+                  <Input
+                    type="number"
+                    value={parseNumberValue(element.style?.right)}
+                    onChange={(e) => handleStyleChange('right', e.target.value ? `${e.target.value}px` : '')}
+                    className="rounded-r-none"
+                  />
+                  <span className="bg-muted border border-l-0 border-border rounded-r px-2 flex items-center text-sm">px</span>
+                </div>
+              </div>
+              <div>
+                <Label className="block text-sm font-medium mb-1">Bottom</Label>
+                <div className="flex">
+                  <Input
+                    type="number"
+                    value={parseNumberValue(element.style?.bottom)}
+                    onChange={(e) => handleStyleChange('bottom', e.target.value ? `${e.target.value}px` : '')}
+                    className="rounded-r-none"
+                  />
+                  <span className="bg-muted border border-l-0 border-border rounded-r px-2 flex items-center text-sm">px</span>
+                </div>
+              </div>
+              <div>
+                <Label className="block text-sm font-medium mb-1">Left</Label>
+                <div className="flex">
+                  <Input
+                    type="number"
+                    value={parseNumberValue(element.style?.left)}
+                    onChange={(e) => handleStyleChange('left', e.target.value ? `${e.target.value}px` : '')}
+                    className="rounded-r-none"
+                  />
+                  <span className="bg-muted border border-l-0 border-border rounded-r px-2 flex items-center text-sm">px</span>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          <div className="mb-4">
+            <Label className="block text-sm font-medium mb-1">Z-Index</Label>
+            <Input
+              type="number"
+              value={element.style?.zIndex || 0}
+              onChange={(e) => handleStyleChange('zIndex', parseInt(e.target.value) || 0)}
+            />
           </div>
         </TabsContent>
       </Tabs>
