@@ -12,7 +12,7 @@ interface TemplateSelectorProps {
 
 export function TemplateSelector({ open, onClose }: TemplateSelectorProps) {
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
-  const { canvas, clearCanvas } = useBuilder();
+  const { canvas, clearCanvas, setCanvas } = useBuilder();
   
   const handleSelectTemplate = (template: Template) => {
     setSelectedTemplate(template);
@@ -24,8 +24,7 @@ export function TemplateSelector({ open, onClose }: TemplateSelectorProps) {
       const newCanvas = JSON.parse(JSON.stringify(selectedTemplate.canvas));
       
       // Update the BuilderContext's canvas
-      // We need to use a method that's not currently in the context, so we'll update it next
-      window.location.reload(); // Temporary solution
+      setCanvas(newCanvas);
       
       toast({
         title: "Template Applied",

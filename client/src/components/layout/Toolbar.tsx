@@ -111,6 +111,10 @@ export function Toolbar() {
             </SelectContent>
           </Select>
         </div>
+        <Button onClick={toggleTemplateSelector} className="flex items-center mr-2">
+          <LayoutTemplate className="h-4 w-4 mr-2" />
+          Templates
+        </Button>
         <Button onClick={toggleExportModal} className="flex items-center">
           <Code className="h-4 w-4 mr-2" />
           Export
@@ -119,6 +123,7 @@ export function Toolbar() {
       
       {isPreviewModalOpen && <PreviewModal onClose={handlePreviewClose} />}
       {isExportModalOpen && <ExportModal />}
+      {isTemplateSelectorOpen && <TemplateSelector open={isTemplateSelectorOpen} onClose={toggleTemplateSelector} />}
     </header>
   );
 }
