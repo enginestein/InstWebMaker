@@ -6,7 +6,7 @@ import { ButtonProperties } from './ButtonProperties';
 import { ContainerProperties } from './ContainerProperties';
 import { useBuilder } from '@/context/BuilderContext';
 import { Button } from '@/components/ui/button';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Copy, Grid3X3 } from 'lucide-react';
 import { useElementActions } from '@/hooks/useElementActions';
 
 interface ElementPropertiesProps {
@@ -14,12 +14,22 @@ interface ElementPropertiesProps {
 }
 
 export function ElementProperties({ element }: ElementPropertiesProps) {
-  const { removeElement } = useBuilder();
-  const { deleteElement } = useElementActions();
+  const { removeElement, toggleGrid } = useBuilder();
+  const { deleteElement, duplicateElement } = useElementActions();
   
   // Handle element deletion
   const handleDelete = () => {
     deleteElement(element.id);
+  };
+  
+  // Handle element duplication
+  const handleDuplicate = () => {
+    duplicateElement(element);
+  };
+  
+  // Handle grid toggle
+  const handleToggleGrid = () => {
+    toggleGrid();
   };
   
   return (
@@ -45,8 +55,29 @@ export function ElementProperties({ element }: ElementPropertiesProps) {
       {/* Common properties for all elements */}
       <CommonProperties element={element} />
       
-      {/* Delete button */}
-      <div className="mt-6 pt-4 border-t border-border">
+      {/* Element Actions */}
+      <div className="mt-6 pt-4 border-t border-border space-y-3">
+        {/* Duplicate button */}
+        <Button 
+          variant="outline" 
+          className="w-full"
+          onClick={handleDuplicate}
+        >
+          <Copy className="h-4 w-4 mr-2" />
+          Duplicate Element
+        </Button>
+        
+        {/* Toggle grid button */}
+        <Button 
+          variant="outline" 
+          className="w-full"
+          onClick={handleToggleGrid}
+        >
+          <Grid3X3 className="h-4 w-4 mr-2" />
+          Toggle Layout Grid
+        </Button>
+        
+        {/* Delete button */}
         <Button 
           variant="destructive" 
           className="w-full"
