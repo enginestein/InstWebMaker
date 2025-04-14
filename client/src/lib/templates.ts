@@ -2384,11 +2384,2467 @@ const saasTemplate: Template = {
   ])
 };
 
+// Blog Template
+const blogTemplate: Template = {
+  id: 'blog',
+  name: 'Blog Website',
+  description: 'A modern blog template with featured posts, categories, and subscription form.',
+  thumbnail: 'https://placehold.co/600x400/3b82f6/ffffff?text=Blog+Template',
+  canvas: createTemplateCanvas([
+    {
+      type: 'container',
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%'
+      },
+      children: [
+        // Header
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1.5rem 2rem',
+            backgroundColor: '#ffffff',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          },
+          children: [
+            // Logo
+            {
+              type: 'heading',
+              content: 'Blogger',
+              style: {
+                fontSize: '1.75rem',
+                fontWeight: '700',
+                color: '#3b82f6',
+                margin: '0'
+              }
+            },
+            // Navigation
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                gap: '2rem'
+              },
+              children: [
+                {
+                  type: 'link',
+                  content: 'Home',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Articles',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Categories',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'About',
+                  href: '#',
+                  style: {
+                    color: '#0f172a',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Subscribe',
+                  style: {
+                    backgroundColor: '#3b82f6',
+                    color: '#ffffff',
+                    padding: '0.5rem 1.25rem',
+                    border: 'none',
+                    borderRadius: '0.375rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Featured Post
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '4rem 2rem',
+            backgroundColor: '#f8fafc',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                flexDirection: 'column',
+                maxWidth: '800px',
+                width: '100%',
+                backgroundColor: '#ffffff',
+                borderRadius: '0.5rem',
+                overflow: 'hidden',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+              },
+              children: [
+                {
+                  type: 'image',
+                  src: 'https://placehold.co/1200x600/3b82f6/ffffff?text=Featured+Post',
+                  alt: 'Featured Post',
+                  style: {
+                    width: '100%',
+                    height: '400px',
+                    objectFit: 'cover'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    padding: '2rem'
+                  },
+                  children: [
+                    {
+                      type: 'text',
+                      content: 'FEATURED POST • APRIL 14, 2025',
+                      style: {
+                        fontSize: '0.875rem',
+                        fontWeight: '600',
+                        color: '#3b82f6',
+                        letterSpacing: '0.05em',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'heading',
+                      content: '10 Tips for Better Productivity in 2025',
+                      style: {
+                        fontSize: '2rem',
+                        fontWeight: '700',
+                        marginBottom: '1rem',
+                        color: '#0f172a'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Learn the best productivity techniques that will help you achieve more in less time. These proven strategies have helped thousands of professionals overcome procrastination and boost their efficiency.',
+                      style: {
+                        fontSize: '1.125rem',
+                        color: '#475569',
+                        marginBottom: '1.5rem',
+                        lineHeight: '1.7'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Continue Reading →',
+                      href: '#',
+                      style: {
+                        color: '#3b82f6',
+                        textDecoration: 'none',
+                        fontWeight: '600',
+                        fontSize: '1.125rem'
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Recent Posts
+        {
+          type: 'container',
+          style: {
+            padding: '4rem 2rem'
+          },
+          children: [
+            {
+              type: 'heading',
+              content: 'Recent Articles',
+              style: {
+                fontSize: '2rem',
+                fontWeight: '700',
+                marginBottom: '3rem',
+                textAlign: 'center'
+              }
+            },
+            // Posts Grid
+            {
+              type: 'container',
+              style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                gap: '2rem',
+                maxWidth: '1200px',
+                margin: '0 auto'
+              },
+              children: [
+                // Post 1
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/800x500/4f46e5/ffffff?text=Article+1',
+                      alt: 'Article 1',
+                      style: {
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          content: 'TECHNOLOGY • APR 10',
+                          style: {
+                            fontSize: '0.75rem',
+                            fontWeight: '600',
+                            color: '#6366f1',
+                            letterSpacing: '0.05em',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'heading',
+                          content: 'AI Trends to Watch in 2025',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            marginBottom: '0.75rem',
+                            color: '#0f172a'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Artificial intelligence is evolving faster than ever. Discover the top trends that will shape the industry this year.',
+                          style: {
+                            fontSize: '0.875rem',
+                            color: '#64748b',
+                            marginBottom: '1rem',
+                            lineHeight: '1.6'
+                          }
+                        },
+                        {
+                          type: 'link',
+                          content: 'Read More →',
+                          href: '#',
+                          style: {
+                            color: '#4f46e5',
+                            textDecoration: 'none',
+                            fontWeight: '600',
+                            fontSize: '0.875rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                
+                // Post 2
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/800x500/10b981/ffffff?text=Article+2',
+                      alt: 'Article 2',
+                      style: {
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          content: 'HEALTH • APR 8',
+                          style: {
+                            fontSize: '0.75rem',
+                            fontWeight: '600',
+                            color: '#10b981',
+                            letterSpacing: '0.05em',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'heading',
+                          content: 'The Benefits of Mindful Meditation',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            marginBottom: '0.75rem',
+                            color: '#0f172a'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Learn how just 10 minutes of daily meditation can significantly improve your mental health and productivity.',
+                          style: {
+                            fontSize: '0.875rem',
+                            color: '#64748b',
+                            marginBottom: '1rem',
+                            lineHeight: '1.6'
+                          }
+                        },
+                        {
+                          type: 'link',
+                          content: 'Read More →',
+                          href: '#',
+                          style: {
+                            color: '#10b981',
+                            textDecoration: 'none',
+                            fontWeight: '600',
+                            fontSize: '0.875rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                
+                // Post 3
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#ffffff',
+                    borderRadius: '0.5rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'https://placehold.co/800x500/f59e0b/ffffff?text=Article+3',
+                      alt: 'Article 3',
+                      style: {
+                        width: '100%',
+                        height: '180px',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '1.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          content: 'TRAVEL • APR 5',
+                          style: {
+                            fontSize: '0.75rem',
+                            fontWeight: '600',
+                            color: '#f59e0b',
+                            letterSpacing: '0.05em',
+                            marginBottom: '0.5rem'
+                          }
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Hidden Gems: Unexplored Destinations',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            marginBottom: '0.75rem',
+                            color: '#0f172a'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Discover beautiful destinations off the beaten path that offer authentic experiences away from the crowds.',
+                          style: {
+                            fontSize: '0.875rem',
+                            color: '#64748b',
+                            marginBottom: '1rem',
+                            lineHeight: '1.6'
+                          }
+                        },
+                        {
+                          type: 'link',
+                          content: 'Read More →',
+                          href: '#',
+                          style: {
+                            color: '#f59e0b',
+                            textDecoration: 'none',
+                            fontWeight: '600',
+                            fontSize: '0.875rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Newsletter
+        {
+          type: 'container',
+          style: {
+            padding: '4rem 2rem',
+            backgroundColor: '#f1f5f9',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '600px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Subscribe to Our Newsletter',
+                  style: {
+                    fontSize: '2rem',
+                    fontWeight: '700',
+                    marginBottom: '1rem',
+                    color: '#0f172a'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Get our weekly digest of articles, tips, and resources delivered straight to your inbox.',
+                  style: {
+                    fontSize: '1.125rem',
+                    color: '#64748b',
+                    marginBottom: '2rem'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    gap: '0.5rem'
+                  },
+                  children: [
+                    {
+                      type: 'input',
+                      placeholder: 'Your email address',
+                      style: {
+                        flex: '1',
+                        padding: '0.75rem 1rem',
+                        fontSize: '1rem',
+                        borderRadius: '0.375rem',
+                        border: '1px solid #e2e8f0'
+                      }
+                    },
+                    {
+                      type: 'button',
+                      content: 'Subscribe',
+                      style: {
+                        backgroundColor: '#3b82f6',
+                        color: '#ffffff',
+                        padding: '0.75rem 1.5rem',
+                        border: 'none',
+                        borderRadius: '0.375rem',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap'
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Footer
+        {
+          type: 'container',
+          style: {
+            backgroundColor: '#0f172a',
+            color: '#f8fafc',
+            padding: '3rem 2rem'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '2rem',
+                maxWidth: '1200px',
+                margin: '0 auto'
+              },
+              children: [
+                // About
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Blogger',
+                      style: {
+                        fontSize: '1.5rem',
+                        fontWeight: '700',
+                        marginBottom: '1rem',
+                        color: '#3b82f6'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'A modern blog covering technology, health, travel, and more. Join our community of readers and writers.',
+                      style: {
+                        color: '#94a3b8',
+                        marginBottom: '1.5rem',
+                        lineHeight: '1.6'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      style: {
+                        display: 'flex',
+                        gap: '1rem'
+                      },
+                      children: [
+                        {
+                          type: 'link',
+                          content: 'Tw',
+                          href: '#',
+                          style: {
+                            color: '#e2e8f0',
+                            textDecoration: 'none',
+                            fontSize: '0.875rem',
+                            width: '2rem',
+                            height: '2rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: 'rgba(255,255,255,0.1)',
+                            borderRadius: '0.25rem'
+                          }
+                        },
+                        {
+                          type: 'link',
+                          content: 'Fb',
+                          href: '#',
+                          style: {
+                            color: '#e2e8f0',
+                            textDecoration: 'none',
+                            fontSize: '0.875rem',
+                            width: '2rem',
+                            height: '2rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: 'rgba(255,255,255,0.1)',
+                            borderRadius: '0.25rem'
+                          }
+                        },
+                        {
+                          type: 'link',
+                          content: 'Ig',
+                          href: '#',
+                          style: {
+                            color: '#e2e8f0',
+                            textDecoration: 'none',
+                            fontSize: '0.875rem',
+                            width: '2rem',
+                            height: '2rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            backgroundColor: 'rgba(255,255,255,0.1)',
+                            borderRadius: '0.25rem'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                
+                // Categories
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Categories',
+                      style: {
+                        fontSize: '1.125rem',
+                        fontWeight: '600',
+                        marginBottom: '1rem',
+                        color: '#f8fafc'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Technology',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Health & Wellness',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Travel',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Productivity',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Lifestyle',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    }
+                  ]
+                },
+                
+                // Quick Links
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Quick Links',
+                      style: {
+                        fontSize: '1.125rem',
+                        fontWeight: '600',
+                        marginBottom: '1rem',
+                        color: '#f8fafc'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'About Us',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Contact',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Privacy Policy',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Terms of Service',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#94a3b8',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            // Copyright
+            {
+              type: 'divider',
+              style: {
+                borderColor: '#1e293b',
+                marginTop: '2rem',
+                marginBottom: '2rem'
+              }
+            },
+            {
+              type: 'text',
+              content: '© 2025 Blogger. All rights reserved.',
+              style: {
+                textAlign: 'center',
+                fontSize: '0.875rem',
+                color: '#94a3b8'
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ])
+};
+
+// Personal Portfolio Template
+const personalPortfolioTemplate: Template = {
+  id: 'personal-portfolio',
+  name: 'Personal Portfolio',
+  description: 'A modern personal portfolio site with projects, skills, and contact form.',
+  thumbnail: 'https://placehold.co/600x400/8b5cf6/ffffff?text=Personal+Portfolio',
+  canvas: createTemplateCanvas([
+    {
+      type: 'container',
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        backgroundColor: '#f9fafb'
+      },
+      children: [
+        // Header/Navigation
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1.5rem 2rem',
+            position: 'sticky',
+            top: '0',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(5px)',
+            boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+            zIndex: 100
+          },
+          children: [
+            // Logo
+            {
+              type: 'heading',
+              content: 'Alex Johnson',
+              style: {
+                fontSize: '1.5rem',
+                fontWeight: '700',
+                color: '#8b5cf6',
+                margin: '0'
+              }
+            },
+            // Links
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                gap: '2rem'
+              },
+              children: [
+                {
+                  type: 'link',
+                  content: 'About',
+                  href: '#about',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Projects',
+                  href: '#projects',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Skills',
+                  href: '#skills',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Contact',
+                  href: '#contact',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Hero Section
+        {
+          type: 'container',
+          style: {
+            padding: '6rem 2rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            backgroundColor: '#ffffff'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '900px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'text',
+                  content: 'HELLO, I AM',
+                  style: {
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    color: '#8b5cf6',
+                    letterSpacing: '0.05em',
+                    marginBottom: '1rem'
+                  }
+                },
+                {
+                  type: 'heading',
+                  content: 'Alex Johnson',
+                  style: {
+                    fontSize: '3.5rem',
+                    fontWeight: '800',
+                    color: '#1f2937',
+                    marginBottom: '1rem'
+                  }
+                },
+                {
+                  type: 'heading',
+                  content: 'Full Stack Developer & UI/UX Designer',
+                  style: {
+                    fontSize: '1.75rem',
+                    fontWeight: '600',
+                    color: '#4b5563',
+                    marginBottom: '1.5rem'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'I build modern, responsive websites and applications with a focus on clean design and exceptional user experience.',
+                  style: {
+                    fontSize: '1.25rem',
+                    color: '#6b7280',
+                    marginBottom: '2rem',
+                    maxWidth: '700px'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    gap: '1rem',
+                    justifyContent: 'center'
+                  },
+                  children: [
+                    {
+                      type: 'button',
+                      content: 'View Projects',
+                      style: {
+                        backgroundColor: '#8b5cf6',
+                        color: '#ffffff',
+                        padding: '0.75rem 1.5rem',
+                        border: 'none',
+                        borderRadius: '0.375rem',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    },
+                    {
+                      type: 'button',
+                      content: 'Contact Me',
+                      style: {
+                        backgroundColor: 'transparent',
+                        color: '#8b5cf6',
+                        padding: '0.75rem 1.5rem',
+                        border: '1px solid #8b5cf6',
+                        borderRadius: '0.375rem',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Projects Section
+        {
+          type: 'container',
+          style: {
+            padding: '5rem 2rem',
+            backgroundColor: '#f9fafb'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '1200px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'heading',
+                  content: 'My Projects',
+                  style: {
+                    fontSize: '2.5rem',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '1rem',
+                    textAlign: 'center'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Here are some of my recent works',
+                  style: {
+                    fontSize: '1.125rem',
+                    color: '#6b7280',
+                    marginBottom: '3rem',
+                    textAlign: 'center'
+                  }
+                },
+                // Project Grid
+                {
+                  type: 'container',
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                    gap: '2rem'
+                  },
+                  children: [
+                    // Project 1
+                    {
+                      type: 'container',
+                      style: {
+                        backgroundColor: '#ffffff',
+                        borderRadius: '0.5rem',
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                        transition: 'transform 0.2s',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'image',
+                          src: 'https://placehold.co/800x500/8b5cf6/ffffff?text=Project+1',
+                          alt: 'Project 1',
+                          style: {
+                            width: '100%',
+                            height: '200px',
+                            objectFit: 'cover'
+                          }
+                        },
+                        {
+                          type: 'container',
+                          style: {
+                            padding: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'heading',
+                              content: 'E-Commerce Website',
+                              style: {
+                                fontSize: '1.25rem',
+                                fontWeight: '700',
+                                color: '#1f2937',
+                                marginBottom: '0.5rem'
+                              }
+                            },
+                            {
+                              type: 'text',
+                              content: 'A fully responsive online store built with React, Node.js, and MongoDB with payment processing and admin dashboard.',
+                              style: {
+                                fontSize: '0.875rem',
+                                color: '#6b7280',
+                                marginBottom: '1rem'
+                              }
+                            },
+                            {
+                              type: 'container',
+                              style: {
+                                display: 'flex',
+                                gap: '0.5rem',
+                                marginBottom: '1rem'
+                              },
+                              children: [
+                                {
+                                  type: 'text',
+                                  content: 'React',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#ede9fe',
+                                    color: '#8b5cf6',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                },
+                                {
+                                  type: 'text',
+                                  content: 'Node.js',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#ecfdf5',
+                                    color: '#10b981',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                },
+                                {
+                                  type: 'text',
+                                  content: 'MongoDB',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#f0f9ff',
+                                    color: '#0ea5e9',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              type: 'link',
+                              content: 'View Project →',
+                              href: '#',
+                              style: {
+                                color: '#8b5cf6',
+                                textDecoration: 'none',
+                                fontWeight: '600',
+                                fontSize: '0.875rem'
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    
+                    // Project 2
+                    {
+                      type: 'container',
+                      style: {
+                        backgroundColor: '#ffffff',
+                        borderRadius: '0.5rem',
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                        transition: 'transform 0.2s',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'image',
+                          src: 'https://placehold.co/800x500/3b82f6/ffffff?text=Project+2',
+                          alt: 'Project 2',
+                          style: {
+                            width: '100%',
+                            height: '200px',
+                            objectFit: 'cover'
+                          }
+                        },
+                        {
+                          type: 'container',
+                          style: {
+                            padding: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'heading',
+                              content: 'Task Management App',
+                              style: {
+                                fontSize: '1.25rem',
+                                fontWeight: '700',
+                                color: '#1f2937',
+                                marginBottom: '0.5rem'
+                              }
+                            },
+                            {
+                              type: 'text',
+                              content: 'A productivity application with real-time collaboration, drag-and-drop interface, and reminder notifications.',
+                              style: {
+                                fontSize: '0.875rem',
+                                color: '#6b7280',
+                                marginBottom: '1rem'
+                              }
+                            },
+                            {
+                              type: 'container',
+                              style: {
+                                display: 'flex',
+                                gap: '0.5rem',
+                                marginBottom: '1rem'
+                              },
+                              children: [
+                                {
+                                  type: 'text',
+                                  content: 'Vue.js',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#eef2ff',
+                                    color: '#4f46e5',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                },
+                                {
+                                  type: 'text',
+                                  content: 'Firebase',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#fff7ed',
+                                    color: '#f97316',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                },
+                                {
+                                  type: 'text',
+                                  content: 'Tailwind',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#f0fdfa',
+                                    color: '#14b8a6',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              type: 'link',
+                              content: 'View Project →',
+                              href: '#',
+                              style: {
+                                color: '#8b5cf6',
+                                textDecoration: 'none',
+                                fontWeight: '600',
+                                fontSize: '0.875rem'
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    
+                    // Project 3
+                    {
+                      type: 'container',
+                      style: {
+                        backgroundColor: '#ffffff',
+                        borderRadius: '0.5rem',
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+                        transition: 'transform 0.2s',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'image',
+                          src: 'https://placehold.co/800x500/ef4444/ffffff?text=Project+3',
+                          alt: 'Project 3',
+                          style: {
+                            width: '100%',
+                            height: '200px',
+                            objectFit: 'cover'
+                          }
+                        },
+                        {
+                          type: 'container',
+                          style: {
+                            padding: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'heading',
+                              content: 'Health & Fitness App',
+                              style: {
+                                fontSize: '1.25rem',
+                                fontWeight: '700',
+                                color: '#1f2937',
+                                marginBottom: '0.5rem'
+                              }
+                            },
+                            {
+                              type: 'text',
+                              content: 'Mobile application for tracking workouts, nutrition, and health metrics with personalized recommendations.',
+                              style: {
+                                fontSize: '0.875rem',
+                                color: '#6b7280',
+                                marginBottom: '1rem'
+                              }
+                            },
+                            {
+                              type: 'container',
+                              style: {
+                                display: 'flex',
+                                gap: '0.5rem',
+                                marginBottom: '1rem'
+                              },
+                              children: [
+                                {
+                                  type: 'text',
+                                  content: 'React Native',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#fef2f2',
+                                    color: '#ef4444',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                },
+                                {
+                                  type: 'text',
+                                  content: 'GraphQL',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#fdf2f8',
+                                    color: '#ec4899',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                },
+                                {
+                                  type: 'text',
+                                  content: 'Redux',
+                                  style: {
+                                    fontSize: '0.75rem',
+                                    padding: '0.25rem 0.5rem',
+                                    backgroundColor: '#eff6ff',
+                                    color: '#3b82f6',
+                                    borderRadius: '0.25rem',
+                                    fontWeight: '500'
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              type: 'link',
+                              content: 'View Project →',
+                              href: '#',
+                              style: {
+                                color: '#8b5cf6',
+                                textDecoration: 'none',
+                                fontWeight: '600',
+                                fontSize: '0.875rem'
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Contact Section
+        {
+          type: 'container',
+          style: {
+            padding: '5rem 2rem',
+            backgroundColor: '#ffffff'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '800px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Get In Touch',
+                  style: {
+                    fontSize: '2.5rem',
+                    fontWeight: '700',
+                    color: '#1f2937',
+                    marginBottom: '1rem',
+                    textAlign: 'center'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Have a project in mind or want to chat? Send me a message!',
+                  style: {
+                    fontSize: '1.125rem',
+                    color: '#6b7280',
+                    marginBottom: '3rem',
+                    textAlign: 'center'
+                  }
+                },
+                // Contact Form
+                {
+                  type: 'container',
+                  style: {
+                    display: 'grid',
+                    gap: '1.5rem'
+                  },
+                  children: [
+                    // Name Field
+                    {
+                      type: 'container',
+                      style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          content: 'Your Name',
+                          style: {
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            color: '#374151'
+                          }
+                        },
+                        {
+                          type: 'input',
+                          placeholder: 'John Doe',
+                          style: {
+                            padding: '0.75rem',
+                            borderRadius: '0.375rem',
+                            border: '1px solid #d1d5db',
+                            fontSize: '1rem'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Email Field
+                    {
+                      type: 'container',
+                      style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          content: 'Your Email',
+                          style: {
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            color: '#374151'
+                          }
+                        },
+                        {
+                          type: 'input',
+                          placeholder: 'john@example.com',
+                          style: {
+                            padding: '0.75rem',
+                            borderRadius: '0.375rem',
+                            border: '1px solid #d1d5db',
+                            fontSize: '1rem'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Message Field
+                    {
+                      type: 'container',
+                      style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.5rem'
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          content: 'Your Message',
+                          style: {
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                            color: '#374151'
+                          }
+                        },
+                        {
+                          type: 'textarea',
+                          placeholder: 'Tell me about your project...',
+                          style: {
+                            padding: '0.75rem',
+                            borderRadius: '0.375rem',
+                            border: '1px solid #d1d5db',
+                            fontSize: '1rem',
+                            minHeight: '8rem'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Submit Button
+                    {
+                      type: 'button',
+                      content: 'Send Message',
+                      style: {
+                        backgroundColor: '#8b5cf6',
+                        color: '#ffffff',
+                        padding: '0.875rem',
+                        border: 'none',
+                        borderRadius: '0.375rem',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        textAlign: 'center'
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Footer
+        {
+          type: 'container',
+          style: {
+            padding: '2rem',
+            backgroundColor: '#f3f4f6',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'text',
+              content: '© 2025 Alex Johnson. All rights reserved.',
+              style: {
+                fontSize: '0.875rem',
+                color: '#6b7280'
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ])
+};
+
+// Startup Landing Page Template
+const startupTemplate: Template = {
+  id: 'startup',
+  name: 'Startup Landing',
+  description: 'A polished startup landing page with features, pricing, and testimonials sections.',
+  thumbnail: 'https://placehold.co/600x400/10b981/ffffff?text=Startup+Landing',
+  canvas: createTemplateCanvas([
+    {
+      type: 'container',
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%'
+      },
+      children: [
+        // Header
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '1.5rem 2rem',
+            backgroundColor: '#ffffff',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          },
+          children: [
+            // Logo
+            {
+              type: 'heading',
+              content: 'LaunchPad',
+              style: {
+                fontSize: '1.75rem',
+                fontWeight: '700',
+                color: '#10b981',
+                margin: '0'
+              }
+            },
+            // Navigation
+            {
+              type: 'container',
+              style: {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '2rem'
+              },
+              children: [
+                {
+                  type: 'link',
+                  content: 'Features',
+                  href: '#features',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Pricing',
+                  href: '#pricing',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Testimonials',
+                  href: '#testimonials',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Contact',
+                  href: '#contact',
+                  style: {
+                    color: '#1f2937',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Sign Up Free',
+                  style: {
+                    backgroundColor: '#10b981',
+                    color: '#ffffff',
+                    padding: '0.625rem 1.25rem',
+                    border: 'none',
+                    borderRadius: '0.375rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Hero Section
+        {
+          type: 'container',
+          style: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '5rem 2rem',
+            backgroundColor: '#f9fafb',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '1000px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'text',
+                  content: 'LAUNCHING SOON',
+                  style: {
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#10b981',
+                    letterSpacing: '0.1em',
+                    marginBottom: '1rem'
+                  }
+                },
+                {
+                  type: 'heading',
+                  content: 'The All-in-One Platform for Modern Teams',
+                  style: {
+                    fontSize: '3.5rem',
+                    fontWeight: '800',
+                    color: '#111827',
+                    marginBottom: '1.5rem',
+                    lineHeight: '1.2'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'LaunchPad helps teams collaborate, manage projects, and streamline workflows all in one powerful yet simple platform. Say goodbye to juggling multiple tools.',
+                  style: {
+                    fontSize: '1.25rem',
+                    color: '#4b5563',
+                    marginBottom: '2.5rem',
+                    maxWidth: '800px'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    gap: '1rem',
+                    justifyContent: 'center',
+                    marginBottom: '3rem'
+                  },
+                  children: [
+                    {
+                      type: 'button',
+                      content: 'Start Free Trial',
+                      style: {
+                        backgroundColor: '#10b981',
+                        color: '#ffffff',
+                        padding: '0.875rem 2rem',
+                        border: 'none',
+                        borderRadius: '0.375rem',
+                        fontSize: '1rem',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    },
+                    {
+                      type: 'button',
+                      content: 'Watch Demo',
+                      style: {
+                        backgroundColor: 'transparent',
+                        color: '#111827',
+                        padding: '0.875rem 2rem',
+                        border: '1px solid #d1d5db',
+                        borderRadius: '0.375rem',
+                        fontSize: '1rem',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    }
+                  ]
+                },
+                {
+                  type: 'image',
+                  src: 'https://placehold.co/1200x600/10b981/ffffff?text=Dashboard+Preview',
+                  alt: 'Dashboard Preview',
+                  style: {
+                    width: '100%',
+                    borderRadius: '0.5rem',
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Features Section
+        {
+          type: 'container',
+          style: {
+            padding: '5rem 2rem',
+            backgroundColor: '#ffffff'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '1200px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Key Features',
+                  style: {
+                    fontSize: '2.5rem',
+                    fontWeight: '700',
+                    color: '#111827',
+                    marginBottom: '1rem',
+                    textAlign: 'center'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Everything you need to streamline your workflow',
+                  style: {
+                    fontSize: '1.125rem',
+                    color: '#6b7280',
+                    marginBottom: '3rem',
+                    textAlign: 'center'
+                  }
+                },
+                // Features Grid
+                {
+                  type: 'container',
+                  style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                    gap: '2rem'
+                  },
+                  children: [
+                    // Feature 1
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '2rem',
+                        backgroundColor: '#f9fafb',
+                        borderRadius: '0.5rem',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'container',
+                          style: {
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '0.5rem',
+                            backgroundColor: '#d1fae5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'text',
+                              content: '🔄',
+                              style: {
+                                fontSize: '1.5rem'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Seamless Integration',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#111827',
+                            marginBottom: '0.75rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Connect with 100+ tools and services you already use with just a few clicks. No more context switching.',
+                          style: {
+                            fontSize: '1rem',
+                            color: '#4b5563',
+                            lineHeight: '1.6'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Feature 2
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '2rem',
+                        backgroundColor: '#f9fafb',
+                        borderRadius: '0.5rem',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'container',
+                          style: {
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '0.5rem',
+                            backgroundColor: '#d1fae5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'text',
+                              content: '📊',
+                              style: {
+                                fontSize: '1.5rem'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Powerful Analytics',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#111827',
+                            marginBottom: '0.75rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Get actionable insights with real-time metrics and detailed reports on your team\'s performance and progress.',
+                          style: {
+                            fontSize: '1rem',
+                            color: '#4b5563',
+                            lineHeight: '1.6'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Feature 3
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '2rem',
+                        backgroundColor: '#f9fafb',
+                        borderRadius: '0.5rem',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'container',
+                          style: {
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '0.5rem',
+                            backgroundColor: '#d1fae5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'text',
+                              content: '🛡️',
+                              style: {
+                                fontSize: '1.5rem'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Enterprise Security',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#111827',
+                            marginBottom: '0.75rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Bank-level encryption and security protocols keep your sensitive data protected at all times.',
+                          style: {
+                            fontSize: '1rem',
+                            color: '#4b5563',
+                            lineHeight: '1.6'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Feature 4
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '2rem',
+                        backgroundColor: '#f9fafb',
+                        borderRadius: '0.5rem',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'container',
+                          style: {
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '0.5rem',
+                            backgroundColor: '#d1fae5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'text',
+                              content: '⚡',
+                              style: {
+                                fontSize: '1.5rem'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Automation Tools',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#111827',
+                            marginBottom: '0.75rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Automate repetitive tasks with powerful workflows to save time and reduce errors in your processes.',
+                          style: {
+                            fontSize: '1rem',
+                            color: '#4b5563',
+                            lineHeight: '1.6'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Feature 5
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '2rem',
+                        backgroundColor: '#f9fafb',
+                        borderRadius: '0.5rem',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'container',
+                          style: {
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '0.5rem',
+                            backgroundColor: '#d1fae5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'text',
+                              content: '📱',
+                              style: {
+                                fontSize: '1.5rem'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Mobile Experience',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#111827',
+                            marginBottom: '0.75rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Stay productive on the go with our fully-featured mobile apps for iOS and Android devices.',
+                          style: {
+                            fontSize: '1rem',
+                            color: '#4b5563',
+                            lineHeight: '1.6'
+                          }
+                        }
+                      ]
+                    },
+                    
+                    // Feature 6
+                    {
+                      type: 'container',
+                      style: {
+                        padding: '2rem',
+                        backgroundColor: '#f9fafb',
+                        borderRadius: '0.5rem',
+                        border: '1px solid #e5e7eb'
+                      },
+                      children: [
+                        {
+                          type: 'container',
+                          style: {
+                            width: '3rem',
+                            height: '3rem',
+                            borderRadius: '0.5rem',
+                            backgroundColor: '#d1fae5',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginBottom: '1.5rem'
+                          },
+                          children: [
+                            {
+                              type: 'text',
+                              content: '👥',
+                              style: {
+                                fontSize: '1.5rem'
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          type: 'heading',
+                          content: 'Team Collaboration',
+                          style: {
+                            fontSize: '1.25rem',
+                            fontWeight: '700',
+                            color: '#111827',
+                            marginBottom: '0.75rem'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Real-time collaboration tools that bring your team together, no matter where they\'re located around the world.',
+                          style: {
+                            fontSize: '1rem',
+                            color: '#4b5563',
+                            lineHeight: '1.6'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Call to Action
+        {
+          type: 'container',
+          style: {
+            padding: '5rem 2rem',
+            backgroundColor: '#10b981',
+            color: '#ffffff',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '800px',
+                margin: '0 auto'
+              },
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Ready to transform your workflow?',
+                  style: {
+                    fontSize: '2.5rem',
+                    fontWeight: '700',
+                    marginBottom: '1.5rem'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Join thousands of teams who are already using LaunchPad to streamline their processes and boost productivity.',
+                  style: {
+                    fontSize: '1.25rem',
+                    marginBottom: '2rem'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Start Your Free 14-Day Trial',
+                  style: {
+                    backgroundColor: '#ffffff',
+                    color: '#10b981',
+                    padding: '0.875rem 2rem',
+                    border: 'none',
+                    borderRadius: '0.375rem',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        
+        // Footer
+        {
+          type: 'container',
+          style: {
+            padding: '4rem 2rem',
+            backgroundColor: '#f9fafb'
+          },
+          children: [
+            {
+              type: 'container',
+              style: {
+                maxWidth: '1200px',
+                margin: '0 auto',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '2rem'
+              },
+              children: [
+                // Company Info
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'LaunchPad',
+                      style: {
+                        fontSize: '1.5rem',
+                        fontWeight: '700',
+                        color: '#10b981',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Streamline your team\'s workflow and boost productivity with our all-in-one platform.',
+                      style: {
+                        fontSize: '0.875rem',
+                        color: '#6b7280',
+                        marginBottom: '1.5rem',
+                        lineHeight: '1.6'
+                      }
+                    }
+                  ]
+                },
+                
+                // Product Links
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Product',
+                      style: {
+                        fontSize: '1rem',
+                        fontWeight: '600',
+                        color: '#111827',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Features',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Pricing',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Integrations',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Changelog',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    }
+                  ]
+                },
+                
+                // Company Links
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Company',
+                      style: {
+                        fontSize: '1rem',
+                        fontWeight: '600',
+                        color: '#111827',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'About',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Blog',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Careers',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Contact',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    }
+                  ]
+                },
+                
+                // Resources Links
+                {
+                  type: 'container',
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Resources',
+                      style: {
+                        fontSize: '1rem',
+                        fontWeight: '600',
+                        color: '#111827',
+                        marginBottom: '1rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Documentation',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Help Center',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Tutorials',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    },
+                    {
+                      type: 'link',
+                      content: 'Community',
+                      href: '#',
+                      style: {
+                        display: 'block',
+                        color: '#6b7280',
+                        textDecoration: 'none',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            // Copyright
+            {
+              type: 'divider',
+              style: {
+                borderColor: '#e5e7eb',
+                marginTop: '2.5rem',
+                marginBottom: '1.5rem'
+              }
+            },
+            {
+              type: 'text',
+              content: '© 2025 LaunchPad Inc. All rights reserved.',
+              style: {
+                textAlign: 'center',
+                fontSize: '0.875rem',
+                color: '#9ca3af'
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ])
+};
+
 // Export all templates
 export const templates: Template[] = [
   landingPageTemplate,
   portfolioTemplate,
   businessTemplate,
   ecommerceTemplate,
-  saasTemplate
+  saasTemplate,
+  blogTemplate,
+  personalPortfolioTemplate,
+  startupTemplate
 ];
