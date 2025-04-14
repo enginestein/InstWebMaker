@@ -17,24 +17,39 @@ export function PreviewModal({ onClose }: PreviewModalProps) {
 
   // Apply HTML to the iframe when canvas changes
   useEffect(() => {
-    if (iframeRef.current) {
-      setLoading(true);
-      const html = generateFullHtml(canvas);
-      const doc = iframeRef.current.contentDocument;
-      
-      if (doc) {
-        doc.open();
-        doc.write(html);
-        doc.close();
-        
-        // After a short delay, hide loading indicator
-        const timer = setTimeout(() => {
+    const applyHtml = () => {
+      if (iframeRef.current) {
+        setLoading(true);
+        try {
+          const html = generateFullHtml(canvas, true);
+          const doc = iframeRef.current.contentDocument || 
+                     (iframeRef.current.contentWindow && iframeRef.current.contentWindow.document);
+          
+          if (doc) {
+            doc.open();
+            doc.write(html);
+            doc.close();
+            
+            // After a short delay, hide loading indicator
+            const timer = setTimeout(() => {
+              setLoading(false);
+            }, 500);
+            
+            return () => clearTimeout(timer);
+          } else {
+            console.error('Could not access iframe document');
+            setLoading(false);
+          }
+        } catch (error) {
+          console.error('Error rendering preview:', error);
           setLoading(false);
-        }, 500);
-        
-        return () => clearTimeout(timer);
+        }
       }
-    }
+    };
+    
+    // Small delay to ensure iframe is properly mounted
+    const timer = setTimeout(applyHtml, 100);
+    return () => clearTimeout(timer);
   }, [canvas, device]);
   
   // Get the device width for the preview
@@ -51,11 +66,22 @@ export function PreviewModal({ onClose }: PreviewModalProps) {
   
   // Handle opening in a new tab
   const openInNewTab = () => {
-    const html = generateFullHtml(canvas);
-    const newWindow = window.open('', '_blank');
-    if (newWindow) {
-      newWindow.document.write(html);
-      newWindow.document.close();
+    try {
+      const html = generateFullHtml(canvas, true);
+      
+      // Create blob and URL for download
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      
+      // Open in new tab
+      window.open(url, '_blank');
+      
+      // Clean up the URL after a delay
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+      }, 5000);
+    } catch (error) {
+      console.error('Error opening in new tab:', error);
     }
   };
   
@@ -63,17 +89,26 @@ export function PreviewModal({ onClose }: PreviewModalProps) {
   const reloadPreview = () => {
     if (iframeRef.current) {
       setLoading(true);
-      const html = generateFullHtml(canvas);
-      const doc = iframeRef.current.contentDocument;
-      
-      if (doc) {
-        doc.open();
-        doc.write(html);
-        doc.close();
+      try {
+        const html = generateFullHtml(canvas, true);
+        const doc = iframeRef.current.contentDocument || 
+                   (iframeRef.current.contentWindow && iframeRef.current.contentWindow.document);
         
-        setTimeout(() => {
+        if (doc) {
+          doc.open();
+          doc.write(html);
+          doc.close();
+          
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
+        } else {
+          console.error('Could not access iframe document during reload');
           setLoading(false);
-        }, 500);
+        }
+      } catch (error) {
+        console.error('Error reloading preview:', error);
+        setLoading(false);
       }
     }
   };
