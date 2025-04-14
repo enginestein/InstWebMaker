@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .element-dragging {
+    @apply opacity-70 scale-105;
+  }
+  
+  .drop-indicator {
+    @apply border-2 border-dashed border-primary bg-primary/10;
+  }
+  
+  .canvas-grid {
+    background-size: 20px 20px;
+    background-image: linear-gradient(to right, hsl(var(--muted)) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(var(--muted)) 1px, transparent 1px);
+  }
+  
+  .element-selected {
+    @apply outline-2 outline outline-primary -outline-offset-2;
+  }
+  
+  .resize-handle {
+    @apply w-2.5 h-2.5 bg-primary rounded-full absolute;
+  }
+  
+  .handle-n { @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-n-resize; }
+  .handle-e { @apply top-1/2 right-0 translate-x-1/2 -translate-y-1/2 cursor-e-resize; }
+  .handle-s { @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 cursor-s-resize; }
+  .handle-w { @apply top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 cursor-w-resize; }
+  .handle-nw { @apply top-0 left-0 -translate-x-1/2 -translate-y-1/2 cursor-nw-resize; }
+  .handle-ne { @apply top-0 right-0 translate-x-1/2 -translate-y-1/2 cursor-ne-resize; }
+  .handle-se { @apply bottom-0 right-0 translate-x-1/2 translate-y-1/2 cursor-se-resize; }
+  .handle-sw { @apply bottom-0 left-0 -translate-x-1/2 translate-y-1/2 cursor-sw-resize; }
+}
