@@ -47,7 +47,7 @@ export function Toolbar() {
       <div className="flex items-center space-x-4">
         <div className="flex items-center">
           <Construction className="text-primary mr-2 h-5 w-5" />
-          <h1 className="text-xl font-semibold text-primary">DragDrop Builder</h1>
+          <h1 className="text-xl font-semibold text-primary">Instituter</h1>
         </div>
         <div className="flex items-center space-x-2">
           <Button

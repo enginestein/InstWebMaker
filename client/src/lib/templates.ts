@@ -4837,6 +4837,1112 @@ const startupTemplate: Template = {
   ])
 };
 
+const productShowcaseTemplate: Template = {
+  id: 'product-showcase',
+  name: 'Product Showcase',
+  description: 'An elegant product display page with features and testimonials',
+  thumbnail: 'product-showcase-thumbnail',
+  canvas: createTemplateCanvas([
+    // Navigation
+    {
+      type: 'container',
+      style: {
+        padding: '24px 40px',
+        backgroundColor: 'white',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)'
+      },
+      children: [
+        {
+          type: 'heading',
+          content: 'BrandName',
+          style: {
+            fontSize: '28px',
+            fontWeight: 'bold',
+            color: 'hsl(var(--primary))',
+            margin: '0'
+          }
+        },
+        {
+          type: 'row',
+          style: {
+            display: 'flex',
+            gap: '32px',
+            alignItems: 'center'
+          },
+          children: [
+            {
+              type: 'link',
+              content: 'Products',
+              href: '#products',
+              style: {
+                color: 'hsl(var(--foreground))',
+                textDecoration: 'none',
+                fontWeight: '500'
+              }
+            },
+            {
+              type: 'link',
+              content: 'Features',
+              href: '#features',
+              style: {
+                color: 'hsl(var(--foreground))',
+                textDecoration: 'none',
+                fontWeight: '500'
+              }
+            },
+            {
+              type: 'link',
+              content: 'Testimonials',
+              href: '#testimonials',
+              style: {
+                color: 'hsl(var(--foreground))',
+                textDecoration: 'none',
+                fontWeight: '500'
+              }
+            },
+            {
+              type: 'button',
+              content: 'Buy Now',
+              style: {
+                backgroundColor: 'hsl(var(--primary))',
+                color: 'white',
+                padding: '10px 24px',
+                borderRadius: '6px',
+                border: 'none',
+                fontWeight: '600',
+                cursor: 'pointer'
+              }
+            }
+          ]
+        }
+      ]
+    },
+    // Hero Product Section
+    {
+      type: 'container',
+      style: {
+        padding: '100px 40px',
+        backgroundColor: '#f8fafc',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '60px',
+        flexWrap: 'wrap'
+      },
+      children: [
+        {
+          type: 'container',
+          style: {
+            flex: '1',
+            minWidth: '300px',
+            maxWidth: '600px'
+          },
+          children: [
+            {
+              type: 'heading',
+              content: 'Premium Product Mark II',
+              style: {
+                fontSize: '48px',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                lineHeight: '1.2'
+              }
+            },
+            {
+              type: 'text',
+              content: 'Experience the next generation of innovation with our flagship product. Designed for performance and built to last.',
+              style: {
+                fontSize: '18px',
+                color: '#64748b',
+                marginBottom: '32px',
+                lineHeight: '1.6'
+              }
+            },
+            {
+              type: 'row',
+              style: {
+                display: 'flex',
+                gap: '16px'
+              },
+              children: [
+                {
+                  type: 'button',
+                  content: 'Buy Now',
+                  style: {
+                    backgroundColor: 'hsl(var(--primary))',
+                    color: 'white',
+                    padding: '14px 32px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    fontWeight: '600',
+                    fontSize: '16px',
+                    cursor: 'pointer'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Learn More',
+                  style: {
+                    backgroundColor: 'transparent',
+                    color: 'hsl(var(--primary))',
+                    padding: '14px 32px',
+                    borderRadius: '6px',
+                    border: '2px solid hsl(var(--primary))',
+                    fontWeight: '600',
+                    fontSize: '16px',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          type: 'image',
+          src: 'product-hero-image',
+          style: {
+            flex: '1',
+            minWidth: '300px',
+            maxWidth: '500px',
+            borderRadius: '12px',
+            boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+          }
+        }
+      ]
+    },
+    // Features Grid
+    {
+      type: 'container',
+      id: 'features',
+      style: {
+        padding: '80px 40px',
+        backgroundColor: 'white'
+      },
+      children: [
+        {
+          type: 'heading',
+          content: 'Why Choose Our Product',
+          style: {
+            fontSize: '36px',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            marginBottom: '16px'
+          }
+        },
+        {
+          type: 'text',
+          content: 'Designed with care to deliver exceptional results every time',
+          style: {
+            fontSize: '18px',
+            color: '#64748b',
+            textAlign: 'center',
+            maxWidth: '700px',
+            margin: '0 auto 60px'
+          }
+        },
+        {
+          type: 'grid',
+          style: {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '32px',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          },
+          children: [
+            // Feature 1
+            {
+              type: 'container',
+              style: {
+                padding: '32px',
+                borderRadius: '12px',
+                backgroundColor: '#f8fafc',
+                textAlign: 'center'
+              },
+              children: [
+                {
+                  type: 'icon',
+                  name: 'shield',
+                  style: {
+                    fontSize: '48px',
+                    color: 'hsl(var(--primary))',
+                    marginBottom: '24px'
+                  }
+                },
+                {
+                  type: 'heading',
+                  content: 'Durable Design',
+                  style: {
+                    fontSize: '22px',
+                    fontWeight: '600',
+                    marginBottom: '16px'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Built with premium materials to withstand daily use and last for years.',
+                  style: {
+                    color: '#64748b',
+                    lineHeight: '1.6'
+                  }
+                }
+              ]
+            },
+            // Feature 2
+            {
+              type: 'container',
+              style: {
+                padding: '32px',
+                borderRadius: '12px',
+                backgroundColor: '#f8fafc',
+                textAlign: 'center'
+              },
+              children: [
+                {
+                  type: 'icon',
+                  name: 'zap',
+                  style: {
+                    fontSize: '48px',
+                    color: 'hsl(var(--primary))',
+                    marginBottom: '24px'
+                  }
+                },
+                {
+                  type: 'heading',
+                  content: 'High Performance',
+                  style: {
+                    fontSize: '22px',
+                    fontWeight: '600',
+                    marginBottom: '16px'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Optimized for speed and efficiency to help you get more done in less time.',
+                  style: {
+                    color: '#64748b',
+                    lineHeight: '1.6'
+                  }
+                }
+              ]
+            },
+            // Feature 3
+            {
+              type: 'container',
+              style: {
+                padding: '32px',
+                borderRadius: '12px',
+                backgroundColor: '#f8fafc',
+                textAlign: 'center'
+              },
+              children: [
+                {
+                  type: 'icon',
+                  name: 'award',
+                  style: {
+                    fontSize: '48px',
+                    color: 'hsl(var(--primary))',
+                    marginBottom: '24px'
+                  }
+                },
+                {
+                  type: 'heading',
+                  content: 'Award Winning',
+                  style: {
+                    fontSize: '22px',
+                    fontWeight: '600',
+                    marginBottom: '16px'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Recognized by industry experts for innovation and quality craftsmanship.',
+                  style: {
+                    color: '#64748b',
+                    lineHeight: '1.6'
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // Product Cards
+    {
+      type: 'container',
+      id: 'products',
+      style: {
+        padding: '80px 40px',
+        backgroundColor: '#f8fafc'
+      },
+      children: [
+        {
+          type: 'heading',
+          content: 'Our Product Line',
+          style: {
+            fontSize: '36px',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            marginBottom: '16px'
+          }
+        },
+        {
+          type: 'text',
+          content: 'Find the perfect solution for your needs',
+          style: {
+            fontSize: '18px',
+            color: '#64748b',
+            textAlign: 'center',
+            maxWidth: '700px',
+            margin: '0 auto 60px'
+          }
+        },
+        {
+          type: 'grid',
+          style: {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '32px',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          },
+          children: [
+            // Product 1
+            {
+              type: 'container',
+              style: {
+                backgroundColor: 'white',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease'
+              },
+              children: [
+                {
+                  type: 'image',
+                  src: 'product-1-image',
+                  style: {
+                    width: '100%',
+                    height: '200px',
+                    objectFit: 'cover'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    padding: '24px'
+                  },
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Standard Edition',
+                      style: {
+                        fontSize: '22px',
+                        fontWeight: '600',
+                        marginBottom: '12px'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'All the essential features for everyday use at an affordable price.',
+                      style: {
+                        color: '#64748b',
+                        marginBottom: '20px',
+                        lineHeight: '1.6'
+                      }
+                    },
+                    {
+                      type: 'heading',
+                      content: '$49.99',
+                      style: {
+                        fontSize: '24px',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        color: 'hsl(var(--primary))'
+                      }
+                    },
+                    {
+                      type: 'button',
+                      content: 'Add to Cart',
+                      style: {
+                        width: '100%',
+                        backgroundColor: 'hsl(var(--primary))',
+                        color: 'white',
+                        padding: '12px',
+                        border: 'none',
+                        borderRadius: '6px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            // Product 2
+            {
+              type: 'container',
+              style: {
+                backgroundColor: 'white',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease',
+                border: '2px solid hsl(var(--primary))'
+              },
+              children: [
+                {
+                  type: 'container',
+                  style: {
+                    backgroundColor: 'hsl(var(--primary))',
+                    color: 'white',
+                    padding: '8px',
+                    textAlign: 'center',
+                    fontWeight: '600'
+                  },
+                  children: [
+                    {
+                      type: 'text',
+                      content: 'Most Popular',
+                      style: {
+                        color: 'white'
+                      }
+                    }
+                  ]
+                },
+                {
+                  type: 'image',
+                  src: 'product-2-image',
+                  style: {
+                    width: '100%',
+                    height: '200px',
+                    objectFit: 'cover'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    padding: '24px'
+                  },
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Professional Edition',
+                      style: {
+                        fontSize: '22px',
+                        fontWeight: '600',
+                        marginBottom: '12px'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'Advanced features for power users and professionals who demand more.',
+                      style: {
+                        color: '#64748b',
+                        marginBottom: '20px',
+                        lineHeight: '1.6'
+                      }
+                    },
+                    {
+                      type: 'heading',
+                      content: '$99.99',
+                      style: {
+                        fontSize: '24px',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        color: 'hsl(var(--primary))'
+                      }
+                    },
+                    {
+                      type: 'button',
+                      content: 'Add to Cart',
+                      style: {
+                        width: '100%',
+                        backgroundColor: 'hsl(var(--primary))',
+                        color: 'white',
+                        padding: '12px',
+                        border: 'none',
+                        borderRadius: '6px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            // Product 3
+            {
+              type: 'container',
+              style: {
+                backgroundColor: 'white',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                transition: 'transform 0.3s ease'
+              },
+              children: [
+                {
+                  type: 'image',
+                  src: 'product-3-image',
+                  style: {
+                    width: '100%',
+                    height: '200px',
+                    objectFit: 'cover'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    padding: '24px'
+                  },
+                  children: [
+                    {
+                      type: 'heading',
+                      content: 'Enterprise Edition',
+                      style: {
+                        fontSize: '22px',
+                        fontWeight: '600',
+                        marginBottom: '12px'
+                      }
+                    },
+                    {
+                      type: 'text',
+                      content: 'The complete solution for businesses with premium support and features.',
+                      style: {
+                        color: '#64748b',
+                        marginBottom: '20px',
+                        lineHeight: '1.6'
+                      }
+                    },
+                    {
+                      type: 'heading',
+                      content: '$199.99',
+                      style: {
+                        fontSize: '24px',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        color: 'hsl(var(--primary))'
+                      }
+                    },
+                    {
+                      type: 'button',
+                      content: 'Add to Cart',
+                      style: {
+                        width: '100%',
+                        backgroundColor: 'hsl(var(--primary))',
+                        color: 'white',
+                        padding: '12px',
+                        border: 'none',
+                        borderRadius: '6px',
+                        fontWeight: '600',
+                        cursor: 'pointer'
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // Testimonials
+    {
+      type: 'container',
+      id: 'testimonials',
+      style: {
+        padding: '80px 40px',
+        backgroundColor: 'white'
+      },
+      children: [
+        {
+          type: 'heading',
+          content: 'What Our Customers Say',
+          style: {
+            fontSize: '36px',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            marginBottom: '60px'
+          }
+        },
+        {
+          type: 'grid',
+          style: {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '32px',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          },
+          children: [
+            // Testimonial 1
+            {
+              type: 'container',
+              style: {
+                padding: '32px',
+                borderRadius: '12px',
+                backgroundColor: '#f8fafc',
+                position: 'relative'
+              },
+              children: [
+                {
+                  type: 'text',
+                  content: '"This product has completely transformed my workflow. The quality is exceptional and it has all the features I need."',
+                  style: {
+                    fontSize: '16px',
+                    color: '#334155',
+                    lineHeight: '1.7',
+                    fontStyle: 'italic',
+                    marginBottom: '24px'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'customer-1-avatar',
+                      style: {
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Sarah Johnson',
+                          style: {
+                            fontSize: '18px',
+                            fontWeight: '600',
+                            marginBottom: '4px'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Designer at Creative Studio',
+                          style: {
+                            fontSize: '14px',
+                            color: '#64748b'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            // Testimonial 2
+            {
+              type: 'container',
+              style: {
+                padding: '32px',
+                borderRadius: '12px',
+                backgroundColor: '#f8fafc',
+                position: 'relative'
+              },
+              children: [
+                {
+                  type: 'text',
+                  content: '"I was skeptical at first, but after using it for a week I can confidently say this is the best product in its category."',
+                  style: {
+                    fontSize: '16px',
+                    color: '#334155',
+                    lineHeight: '1.7',
+                    fontStyle: 'italic',
+                    marginBottom: '24px'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'customer-2-avatar',
+                      style: {
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Michael Chen',
+                          style: {
+                            fontSize: '18px',
+                            fontWeight: '600',
+                            marginBottom: '4px'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'CTO at Tech Solutions',
+                          style: {
+                            fontSize: '14px',
+                            color: '#64748b'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            // Testimonial 3
+            {
+              type: 'container',
+              style: {
+                padding: '32px',
+                borderRadius: '12px',
+                backgroundColor: '#f8fafc',
+                position: 'relative'
+              },
+              children: [
+                {
+                  type: 'text',
+                  content: '"The customer support is outstanding and the product itself exceeds all expectations. Worth every penny!"',
+                  style: {
+                    fontSize: '16px',
+                    color: '#334155',
+                    lineHeight: '1.7',
+                    fontStyle: 'italic',
+                    marginBottom: '24px'
+                  }
+                },
+                {
+                  type: 'container',
+                  style: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px'
+                  },
+                  children: [
+                    {
+                      type: 'image',
+                      src: 'customer-3-avatar',
+                      style: {
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        objectFit: 'cover'
+                      }
+                    },
+                    {
+                      type: 'container',
+                      children: [
+                        {
+                          type: 'heading',
+                          content: 'Emily Rodriguez',
+                          style: {
+                            fontSize: '18px',
+                            fontWeight: '600',
+                            marginBottom: '4px'
+                          }
+                        },
+                        {
+                          type: 'text',
+                          content: 'Marketing Director',
+                          style: {
+                            fontSize: '14px',
+                            color: '#64748b'
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // CTA Section
+    {
+      type: 'container',
+      style: {
+        padding: '100px 40px',
+        backgroundColor: 'hsl(var(--primary))',
+        color: 'white',
+        textAlign: 'center'
+      },
+      children: [
+        {
+          type: 'heading',
+          content: 'Ready to Transform Your Experience?',
+          style: {
+            fontSize: '36px',
+            fontWeight: 'bold',
+            marginBottom: '24px'
+          }
+        },
+        {
+          type: 'text',
+          content: 'Join thousands of satisfied customers today.',
+          style: {
+            fontSize: '18px',
+            color: 'rgba(255, 255, 255, 0.9)',
+            maxWidth: '600px',
+            margin: '0 auto 40px'
+          }
+        },
+        {
+          type: 'button',
+          content: 'Get Started Now',
+          style: {
+            backgroundColor: 'white',
+            color: 'hsl(var(--primary))',
+            padding: '16px 40px',
+            fontSize: '18px',
+            fontWeight: '600',
+            borderRadius: '8px',
+            border: 'none',
+            cursor: 'pointer',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+          }
+        }
+      ]
+    },
+    // Footer
+    {
+      type: 'container',
+      style: {
+        padding: '40px',
+        backgroundColor: '#0f172a',
+        color: 'white'
+      },
+      children: [
+        {
+          type: 'grid',
+          style: {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '40px',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          },
+          children: [
+            {
+              type: 'container',
+              children: [
+                {
+                  type: 'heading',
+                  content: 'BrandName',
+                  style: {
+                    fontSize: '24px',
+                    fontWeight: 'bold',
+                    marginBottom: '20px',
+                    color: 'white'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Making premium products accessible to everyone since 2015.',
+                  style: {
+                    color: '#94a3b8',
+                    lineHeight: '1.6'
+                  }
+                }
+              ]
+            },
+            {
+              type: 'container',
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Quick Links',
+                  style: {
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    marginBottom: '20px',
+                    color: 'white'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Home',
+                  href: '#',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px',
+                    textDecoration: 'none'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Products',
+                  href: '#products',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px',
+                    textDecoration: 'none'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'Features',
+                  href: '#features',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px',
+                    textDecoration: 'none'
+                  }
+                },
+                {
+                  type: 'link',
+                  content: 'About Us',
+                  href: '#',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px',
+                    textDecoration: 'none'
+                  }
+                }
+              ]
+            },
+            {
+              type: 'container',
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Contact',
+                  style: {
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    marginBottom: '20px',
+                    color: 'white'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: '123 Business Ave, Suite 100',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'hello@brandname.com',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: '(555) 123-4567',
+                  style: {
+                    display: 'block',
+                    color: '#94a3b8',
+                    marginBottom: '12px'
+                  }
+                }
+              ]
+            },
+            {
+              type: 'container',
+              children: [
+                {
+                  type: 'heading',
+                  content: 'Newsletter',
+                  style: {
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    marginBottom: '20px',
+                    color: 'white'
+                  }
+                },
+                {
+                  type: 'text',
+                  content: 'Subscribe to get updates and special offers.',
+                  style: {
+                    color: '#94a3b8',
+                    marginBottom: '16px',
+                    lineHeight: '1.6'
+                  }
+                },
+                {
+                  type: 'input',
+                  placeholder: 'Your email address',
+                  style: {
+                    width: '100%',
+                    padding: '12px',
+                    borderRadius: '6px',
+                    border: 'none',
+                    marginBottom: '12px'
+                  }
+                },
+                {
+                  type: 'button',
+                  content: 'Subscribe',
+                  style: {
+                    width: '100%',
+                    backgroundColor: 'hsl(var(--primary))',
+                    color: 'white',
+                    padding: '12px',
+                    border: 'none',
+                    borderRadius: '6px',
+                    fontWeight: '600',
+                    cursor: 'pointer'
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          type: 'container',
+          style: {
+            paddingTop: '40px',
+            marginTop: '40px',
+            borderTop: '1px solid #1e293b',
+            textAlign: 'center'
+          },
+          children: [
+            {
+              type: 'text',
+              content: '© 2025 BrandName. All rights reserved.',
+              style: {
+                color: '#94a3b8',
+                fontSize: '14px'
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ])
+};
+
 // Export all templates
 export const templates: Template[] = [
   landingPageTemplate,
@@ -4846,5 +5952,6 @@ export const templates: Template[] = [
   saasTemplate,
   blogTemplate,
   personalPortfolioTemplate,
-  startupTemplate
+  startupTemplate,
+  productShowcaseTemplate
 ];
