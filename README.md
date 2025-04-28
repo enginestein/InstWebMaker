@@ -1,5 +1,3 @@
----
-
 # End User License Agreement (EULA)
 
 **IMPORTANT**: Please read this End User License Agreement ("Agreement") carefully before using, copying, modifying, distributing, hosting, or otherwise accessing any part of the Software.
